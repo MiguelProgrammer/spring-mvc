@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
  * Métodos que atendem requisições HTTP são chamados de action
  */
 @Controller
-public class HelloController {
+public class HomeController {
 
-	@GetMapping("/hello")
+	@GetMapping("/home")
 	public String hello(Model resquest) {
-		resquest.addAttribute("nameCampo", "Olá mundo Spring MVC!");
-		return "hello";
+		//resquest.addAttribute("nameCampo", "Olá mundo Spring MVC!");
+		return "home";
 	}
 }
