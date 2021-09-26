@@ -10,26 +10,39 @@
 <body>
 	<div class="container">
 		<div th:each="pedido : ${pedidos}" class="card">
-			<div th:text="${pedido.nome}" class="card-header">Nome do Produto</div>
-			<div>
-				Valor: <span th:text="${pedido.valor}">140,90</span>
-			</div>
-			<div>
-				Data de Entrega <span th:text="${pedido.dataEntrega}">10/04/2021</span>
-			</div>
+			<div th:text="${pedido.nome}" class="card-header">Nome
+				doProduto</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12 col-sm-8 mb-3">
+						<div class="row">
+							<div class="col-md-5">
+								Valor: <span th:text="${pedido.valor}">140,90</span>
+							</div>
+							<div class="col-md-7">
+								Data de Entrega <span th:text="${pedido.dataEntrega}">10/04/2021</span>
+							</div>
+						</div>
 
-			<div>Produto</div>
-			<div>
-				Url Prodot: <input th:value="${pedido.urlProduto}" class="form-control"/>
-			</div>
+						<div>Produto</div>
+						<div>
+							<input th:value="${pedido.urlProduto}"
+								class="form-control" placeholder="Url produto" />
+						</div>
 
-			<div>Descrição</div>
-			<div>
-				<textarea th:text="${pedido.descricao}" class="form-control">descrição pedido</textarea>
-			</div>
+						<div>Descrição</div>
+						<div>
+							<textarea th:text="${pedido.descricao}" class="form-control">descrição pedido</textarea>
+						</div>
+					</div>
 
-			<div>
-				<img th:src="${pedido.urlImagem}" src="imagem" alt="imagem_produto" />
+					<div class="col-12 col-sm-4">
+						<div>
+							<img th:src="${pedido.urlImagem}" src="imagem"
+								alt="imagem_produto" class="img-fluid img-thumbnail" />
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
