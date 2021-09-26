@@ -33,10 +33,10 @@
 					<div class="col-12 col-sm-8 mb-3">
 						<div class="row">
 							<div class="col-md-5">
-								Valor: <span th:text="${pedido.valor}">140,90</span>
+								Valor: <span th:if="${pedido.valor} != null" th:text="${'R$ ' + #numbers.formatDecimal(pedido.valor,3,'POINT',2,'COMMA')}">140,90</span>
 							</div>
 							<div class="col-md-7">
-								Data de Entrega <span th:text="${pedido.dataEntrega}">10/04/2021</span>
+								Data de Entrega: <span th:text="${#temporals.format(pedido.dataEntrega,'dd/MM/yyyy')}">10/04/2021</span>
 							</div>
 						</div>
 
