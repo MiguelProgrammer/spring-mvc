@@ -1,114 +1,85 @@
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
-	crossorigin="anonymous">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-	crossorigin="anonymous"></script>
-</head>
-<body>
+<head th:replace="~{base :: head}"></head>
+<div  th:replace="~{base::titulo('Meus Pedidos')}"></div>
 
-	<div class="card mb-3 p-2">
-		<ul class="nav d-flex justify-content-between alert alert-primary mt-3">
-			<div class="d-flex justify-content-between">
-				<li class="nav-item">
-					<h2 class="font-monospace">Minha Loja Favorita ltda</h2></li>
-			</div>
-			<div class="d-flex justify-content-between">
-				<li class="nav-item"><a class="nav-link">
-						<button type="button" class="btn btn-danger btn-sm">Logout</button>
-				</a></li>
-			</div>
-		</ul>
+<div class="mt-2 d-flex justify-content-between mt-4">
+	<div class="nav nav-tabs col-10" id="nav-tab" role="tablist">
+		<button class="nav-link active" id="nav-todos-tab"
+			data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
+			role="tab" aria-controls="nav-home" aria-selected="true">
+			Todos</button>
+		<button class="nav-link" id="nav-aguardando-tab" data-bs-toggle="tab"
+			data-bs-target="#nav-profile" type="button" role="tab"
+			aria-controls="nav-profile" aria-selected="false">
+			Aguardando</button>
+		<button class="nav-link" id="nav-aprovado-tab" data-bs-toggle="tab"
+			data-bs-target="#nav-contact" type="button" role="tab"
+			aria-controls="nav-contact" aria-selected="false">Aprovando</button>
+		<button class="nav-link" id="nav-entregue-tab" data-bs-toggle="tab"
+			data-bs-target="#nav-entrega" type="button" role="tab"
+			aria-controls="nav-entrega" aria-selected="false">Entregue</button>
 	</div>
+	<div class="ms-9 col-sm-1">
+		<a href="/pedido/formulario"
+			class="btn btn-outline-secondary my-2 my-sm-0" type="button">Novo
+		</a>
+	</div>
+</div>
+<div class="m-3">
+	<div class="tab-content" id="nav-tabContent">
+		<div class="tab-pane fade show active alert alert-secondary"
+			id="nav-home" role="tabpanel" aria-labelledby="nav-todos-tab">Todos
+			os produtos</div>
+		<div class="tab-pane fade alert alert-warning" id="nav-profile"
+			role="tabpanel" aria-labelledby="nav-aguardando-tab">Produtos
+			Pendentes</div>
+		<div class="tab-pane fade alert alert-success" id="nav-contact"
+			role="tabpanel" aria-labelledby="nav-aprovado-tab">Produtos
+			Aprovados</div>
+		<div class="tab-pane fade alert alert-primary" id="nav-entrega"
+			role="tabpanel" aria-labelledby="nav-entregue-tab">Produtos
+			Entregues</div>
+	</div>
+</div>
+</div>
+</nav>
 
-	<div class="container">
-		<nav class="card mb-3 mt-2">
-			<h2 class="p-3 bg-light rounded-3">Meus Pedidos</h2>
-			<div class="mt-2 d-flex justify-content-between">
-				<div class="nav nav-tabs col-10" id="nav-tab" role="tablist">
-					<button class="nav-link active" id="nav-todos-tab"
-						data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
-						role="tab" aria-controls="nav-home" aria-selected="true">
-						Todos</button>
-					<button class="nav-link" id="nav-aguardando-tab"
-						data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
-						role="tab" aria-controls="nav-profile" aria-selected="false">
-						Aguardando</button>
-					<button class="nav-link" id="nav-aprovado-tab" data-bs-toggle="tab"
-						data-bs-target="#nav-contact" type="button" role="tab"
-						aria-controls="nav-contact" aria-selected="false">
-						Aprovando</button>
-					<button class="nav-link" id="nav-entregue-tab" data-bs-toggle="tab"
-						data-bs-target="#nav-entrega" type="button" role="tab"
-						aria-controls="nav-entrega" aria-selected="false">
-						Entregue</button>
-				</div>
-				<div class="ms-9 col-sm-1">
-					<a href="/pedido/formulario"
-						class="btn btn-outline-secondary my-2 my-sm-0" type="button">Novo
-					</a>
-				</div>
-			</div>
-			<div class="m-3">
-				<div class="tab-content" id="nav-tabContent">
-					<div class="tab-pane fade show active alert alert-secondary"
-						id="nav-home" role="tabpanel" aria-labelledby="nav-todos-tab">Todos
-						os produtos</div>
-					<div class="tab-pane fade alert alert-warning" id="nav-profile"
-						role="tabpanel" aria-labelledby="nav-aguardando-tab">Produtos
-						Pendentes</div>
-					<div class="tab-pane fade alert alert-success" id="nav-contact"
-						role="tabpanel" aria-labelledby="nav-aprovado-tab">Produtos
-						Aprovados</div>
-					<div class="tab-pane fade alert alert-primary" id="nav-entrega"
-						role="tabpanel" aria-labelledby="nav-entregue-tab">Produtos
-						Entregues</div>
-				</div>
-			</div>
-		</nav>
-
-		<div th:each="pedido : ${pedidos}" class="card mb-4">
-			<div th:text="${pedido.nome}" class="card-header">Nome
-				doProduto</div>
-			<div class="card-body">
+<div th:each="pedido : ${pedidos}" class="card mb-4">
+	<div th:text="${pedido.nome}" class="card-header">Nome doProduto</div>
+	<div class="card-body">
+		<div class="row">
+			<div class="col-12 col-sm-8 mb-3">
 				<div class="row">
-					<div class="col-12 col-sm-8 mb-3">
-						<div class="row">
-							<div class="col-md-5">
-								Valor: <span th:text="${pedido.valor}">140,90</span>
-							</div>
-							<div class="col-md-7">
-								Data de Entrega <span th:text="${pedido.dataEntrega}">10/04/2021</span>
-							</div>
-						</div>
-
-						<div>Produto</div>
-						<div>
-							<input th:value="${pedido.urlProduto}" class="form-control"
-								placeholder="Url produto" />
-						</div>
-
-						<div>Descrição</div>
-						<div>
-							<textarea th:text="${pedido.descricao}" class="form-control">descrição pedido</textarea>
-						</div>
+					<div class="col-md-5">
+						Valor: <span th:text="${pedido.valor}">140,90</span>
 					</div>
-
-					<div class="col-12 col-sm-4">
-						<div>
-							<img th:src="${pedido.urlImagem}" src="imagem"
-								alt="imagem_produto" class="img-fluid img-thumbnail" />
-						</div>
+					<div class="col-md-7">
+						Data de Entrega <span th:text="${pedido.dataEntrega}">10/04/2021</span>
 					</div>
+				</div>
+
+				<div>Produto</div>
+				<div>
+					<input th:value="${pedido.urlProduto}" class="form-control"
+						placeholder="Url produto" />
+				</div>
+
+				<div>Descrição</div>
+				<div>
+					<textarea th:text="${pedido.descricao}" class="form-control">descrição pedido</textarea>
+				</div>
+			</div>
+
+			<div class="col-12 col-sm-4">
+				<div>
+					<img th:src="${pedido.urlImagem}" src="imagem" alt="imagem_produto"
+						class="img-fluid img-thumbnail" />
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+</div>
 </body>
 </html>
