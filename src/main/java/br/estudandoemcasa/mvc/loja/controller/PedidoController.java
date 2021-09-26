@@ -34,6 +34,6 @@ public class PedidoController {
 
 		Pedido pedido = pedidoDTO.toPedido();
 		pedidoRepository.save(pedido);
-		return result.hasErrors() ? "pedido/formulario" : "pedido/formulario";
+		return result.hasErrors() ? "pedido/formulario" : "redirect:/home";
 	}
 }

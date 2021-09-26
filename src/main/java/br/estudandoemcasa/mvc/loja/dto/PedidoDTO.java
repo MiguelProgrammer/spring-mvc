@@ -1,20 +1,19 @@
 package br.estudandoemcasa.mvc.loja.dto;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
+import br.estudandoemcasa.mvc.loja.enums.StatusPedido;
 import br.estudandoemcasa.mvc.loja.model.Pedido;
 
 public class PedidoDTO {
 
-	@NotBlank @Min(10) @Max(30)
+	@NotBlank	
 	private String nomeProduto;
 	
-	@NotBlank @Min(20) @Max(200)
+	@NotBlank
 	private String urlProduto;
 	
-	@NotBlank @Min(20) @Max(200)
+	@NotBlank
 	private String urlImagem;
 	private String descricao;
 	
@@ -58,7 +57,7 @@ public class PedidoDTO {
 		pedido.setNome(nomeProduto);
 		pedido.setUrlImagem(urlImagem);
 		pedido.setUrlProduto(urlProduto);
-		
+		pedido.setStatus(StatusPedido.AGUARDANDO);
 		return pedido;
 	}
 	
