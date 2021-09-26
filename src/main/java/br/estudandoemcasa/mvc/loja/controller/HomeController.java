@@ -21,7 +21,7 @@ public class HomeController {
 	
 	@GetMapping("/home")
 	public String home(Model resquest) {
-		resquest.addAttribute("pedidos", pedidoRepository.getPedidos().stream().collect(Collectors.toList()));
+		resquest.addAttribute("pedidos", pedidoRepository.findAll().stream().collect(Collectors.toList()));
 		return "home";
 	}
 }
