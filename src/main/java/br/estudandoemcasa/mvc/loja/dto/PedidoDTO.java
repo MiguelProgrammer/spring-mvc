@@ -1,11 +1,18 @@
 package br.estudandoemcasa.mvc.loja.dto;
 
+import javax.validation.constraints.NotBlank;
+
 import br.estudandoemcasa.mvc.loja.model.Pedido;
 
 public class PedidoDTO {
 
+	@NotBlank
 	private String nomeProduto;
+	
+	@NotBlank
 	private String urlProduto;
+	
+	@NotBlank
 	private String urlImagem;
 	private String descricao;
 	

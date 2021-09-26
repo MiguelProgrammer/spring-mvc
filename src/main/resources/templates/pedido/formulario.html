@@ -10,6 +10,7 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
 	crossorigin="anonymous"></script>
+
 </head>
 <body>
 	<div class="container">
@@ -17,32 +18,33 @@
 			<h2 class="p-3 bg-light rounded-3">Novo Pedido</h2>
 		</nav>
 
-		<div class="form">
-			<form action="/pedido/novo" method="POST">
-				<div>
-					<label for="nomeProduto">Produto</label> <input
-						class="form-control" name="nomeProduto"
-						placeholder="nome do produto" /> 
-						<small>Informe o nome do produto</small>
+		<div class="form card">
+			<form th:object = "${pedidoDTO}" class="card-body"
+				action="/pedido/novo" method="POST">
+				<div class="mb-3">
+					<label for="nomeProduto" class="form-label">Produto</label> <input
+						class="form-control" placeholder="nome do produto"
+						 th:field="*{nomeProduto}"/> <small class="form-text">Informe
+						o nome do produto</small>
 				</div>
 				<div>
-					<label for="urlProduto">Url</label> <input
-						class="form-control" name="urlProduto"
-						placeholder="url do produto" /> 
-						<small>Cole a url do produto</small>
+					<label for="urlProduto" class="form-label">Url</label> <input
+						class="form-control" th:field="*{urlProduto}"
+						placeholder="url do produto" /> <small class="form-text">Cole
+						a url do produto</small>
 				</div>
 				<div>
-					<label for="urlImagem">Imagem</label> <input
-						class="form-control" name="urlImagem"
-						placeholder="url da imagem" /> 
-						<small>Cole a url da imagem do produto</small>
+					<label for="urlImagem" class="form-label">Imagem</label> <input
+						class="form-control" th:field="*{urlImagem}"
+						placeholder="url da imagem" /> <small class="form-text">Cole
+						a url da imagem do produto</small>
 				</div>
 				<div>
-					<label for="descricao">Descrição</label> <textarea
-						class="form-control" name="descricao"
+					<label for="descricao" class="form-label">Descrição</label>
+					<textarea class="form-control" th:field="*{descricao}"
 						placeholder="informações do produto"></textarea>
 				</div>
-				<button type="submit" class="btn btn-primary">Cadastrar</button>
+				<button type="submit" class="mt-4 btn btn-primary">Cadastrar</button>
 			</form>
 		</div>
 	</div>

@@ -1,8 +1,11 @@
 package br.estudandoemcasa.mvc.loja.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,10 +31,10 @@ public class PedidoController {
 	}
 	
 	@PostMapping("novo")
-	public String novo(PedidoDTO pedidoDTO) {
-		
+	public String novo(@Valid PedidoDTO pedidoDTO, BindingResult result) {
+
 		Pedido pedido = pedidoDTO.toPedido();
 		pedidoRepository.save(pedido);
-		return "pedido/formulario";
+		return result.hasErrors() ? "pedido/formulario" : "pedido/formulario";
 	}
 }
