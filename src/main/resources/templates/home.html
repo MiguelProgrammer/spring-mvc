@@ -12,9 +12,24 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
+
+	<div class="card mb-3 p-2">
+		<ul class="nav d-flex justify-content-between alert alert-primary mt-3">
+			<div class="d-flex justify-content-between">
+				<li class="nav-item">
+					<h2 class="font-monospace">Minha Loja Favorita ltda</h2></li>
+			</div>
+			<div class="d-flex justify-content-between">
+				<li class="nav-item"><a class="nav-link">
+						<button type="button" class="btn btn-danger btn-sm">Logout</button>
+				</a></li>
+			</div>
+		</ul>
+	</div>
+
 	<div class="container">
 		<nav class="card mb-3 mt-2">
-		<h2 class="p-3 bg-light rounded-3">Meus Pedidos</h2>
+			<h2 class="p-3 bg-light rounded-3">Meus Pedidos</h2>
 			<div class="mt-2 d-flex justify-content-between">
 				<div class="nav nav-tabs col-10" id="nav-tab" role="tablist">
 					<button class="nav-link active" id="nav-todos-tab"
@@ -35,7 +50,9 @@
 						Entregue</button>
 				</div>
 				<div class="ms-9 col-sm-1">
-					<a  href="/pedido/formulario" class="btn btn-outline-secondary my-2 my-sm-0" type="button">Novo </a>
+					<a href="/pedido/formulario"
+						class="btn btn-outline-secondary my-2 my-sm-0" type="button">Novo
+					</a>
 				</div>
 			</div>
 			<div class="m-3">

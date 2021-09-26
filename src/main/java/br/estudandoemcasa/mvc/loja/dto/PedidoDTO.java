@@ -1,18 +1,20 @@
 package br.estudandoemcasa.mvc.loja.dto;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 import br.estudandoemcasa.mvc.loja.model.Pedido;
 
 public class PedidoDTO {
 
-	@NotBlank
+	@NotBlank @Min(10) @Max(30)
 	private String nomeProduto;
 	
-	@NotBlank
+	@NotBlank @Min(20) @Max(200)
 	private String urlProduto;
 	
-	@NotBlank
+	@NotBlank @Min(20) @Max(200)
 	private String urlImagem;
 	private String descricao;
 	
