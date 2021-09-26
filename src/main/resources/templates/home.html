@@ -5,20 +5,10 @@
 
 <div class="mt-2 d-flex justify-content-between mt-4">
 	<div class="nav nav-tabs col-10" id="nav-tab" role="tablist">
-		<button class="nav-link active" id="nav-todos-tab"
-			data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
-			role="tab" aria-controls="nav-home" aria-selected="true">
-			Todos</button>
-		<button class="nav-link" id="nav-aguardando-tab" data-bs-toggle="tab"
-			data-bs-target="#nav-profile" type="button" role="tab"
-			aria-controls="nav-profile" aria-selected="false">
-			Aguardando</button>
-		<button class="nav-link" id="nav-aprovado-tab" data-bs-toggle="tab"
-			data-bs-target="#nav-contact" type="button" role="tab"
-			aria-controls="nav-contact" aria-selected="false">Aprovando</button>
-		<button class="nav-link" id="nav-entregue-tab" data-bs-toggle="tab"
-			data-bs-target="#nav-entrega" type="button" role="tab"
-			aria-controls="nav-entrega" aria-selected="false">Entregue</button>
+		<a href="/home" class="nav-link">Todos</a>
+		<a th:classappend="${status} == 'aguardando' ? 'active'"  href="/home/aguardando" class="nav-link">Aguardando</a>
+		<a th:classappend="${status} == 'aprovado' ? 'active'"  href="/home/aprovado" class="nav-link">Aprovado</a>
+		<a th:classappend="${status} == 'entregue' ? 'active'"  href="/home/entregue" class="nav-link">Entregue</a>
 	</div>
 	<div class="ms-9 col-sm-1">
 		<a href="/pedido/formulario"
@@ -26,22 +16,7 @@
 		</a>
 	</div>
 </div>
-<div class="m-3">
-	<div class="tab-content" id="nav-tabContent">
-		<div class="tab-pane fade show active alert alert-secondary"
-			id="nav-home" role="tabpanel" aria-labelledby="nav-todos-tab">Todos
-			os produtos</div>
-		<div class="tab-pane fade alert alert-warning" id="nav-profile"
-			role="tabpanel" aria-labelledby="nav-aguardando-tab">Produtos
-			Pendentes</div>
-		<div class="tab-pane fade alert alert-success" id="nav-contact"
-			role="tabpanel" aria-labelledby="nav-aprovado-tab">Produtos
-			Aprovados</div>
-		<div class="tab-pane fade alert alert-primary" id="nav-entrega"
-			role="tabpanel" aria-labelledby="nav-entregue-tab">Produtos
-			Entregues</div>
-	</div>
-</div>
+
 </div>
 </nav>
 
@@ -80,7 +55,7 @@
 					<div class="col-12 col-sm-4">
 						<div>
 							<img th:src="${pedido.urlImagem}" src="imagem"
-								alt="imagem_produto" class="img-fluid img-thumbnail" />
+								alt="imagem_produto" class="img-thumbnail" />
 						</div>
 					</div>
 				</div>
