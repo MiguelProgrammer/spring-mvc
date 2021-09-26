@@ -3,25 +3,25 @@
 <meta charset="UTF-8">
 </head>
 <body>
-	<div>
-		<div>Nome do Produto</div>
+	<div th:each="pedido : ${pedidos}">
+		<div th:text="${pedido.nome}">Nome do Produto</div>
 		<div>
-			Valor: <span>140,90</span>
+			Valor: <span th:text="${pedido.valor}">140,90</span>
 		</div>
 		<div>
-			Data de Entrega <span>10/04/2021</span>
+			Data de Entrega <span th:text="${pedido.dataEntrega}">10/04/2021</span>
 		</div>
 
 		<div>Produto</div>
-		<div>Url Produto:</div>
+		<div>Url Prodot: <input th:value="${pedido.urlProduto}"/></div>
 
 		<div>Descrição</div>
 		<div>
-			<textarea>descrição pedido</textarea>
+			<textarea th:text="${pedido.descricao}">descrição pedido</textarea>
 		</div>
 
 		<div>
-			<img src="imagem" alt="imagem_produto" />
+			<img th:src="${pedido.urlImagem}" src="imagem" alt="imagem_produto" />
 		</div>
 	</div>
 </body>
